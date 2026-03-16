@@ -12,18 +12,73 @@
 <body>
     <div class="stars"></div>
     
+    <!-- 烟火特效 -->
+    <div id="fireworks"></div>
+    
+    <!-- 心形雨 -->
+    <div id="hearts-rain"></div>
+    
+    <!-- 功能控制条 -->
+    <div class="controls-bar">
+        <button class="control-btn" id="musicBtn" onclick="toggleMusic()" title="音乐">🎵</button>
+        <button class="control-btn" id="fireBtn" onclick="triggerFireworks()" title="烟火">✨</button>
+        <button class="control-btn" id="heartBtn" onclick="toggleHeartRain()" title="心形雨">💕</button>
+        <button class="control-btn" id="darkBtn" onclick="toggleDarkMode()" title="暗黑模式">🌙</button>
+    </div>
+    
+    <!-- 访客计数器 -->
+    <div class="visitor-counter">
+        <span>👁️ 访客: <span id="visitorCount">0</span></span>
+    </div>
+    
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
     <div class="container">
         <!-- 开始屏幕 -->
         <div id="startScreen" class="screen active">
             <div class="greeting-box">
                 <h1 class="title">✨ 亲爱的你 ✨</h1>
                 <p class="subtitle">我想和你分享一些话...</p>
+                <div class="difficulty-selector">
+                    <p class="difficulty-text">选择难度：</p>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" onclick="setDifficulty('easy')">😌 简单</button>
+                        <button class="difficulty-btn" onclick="setDifficulty('normal')">😊 正常</button>
+                        <button class="difficulty-btn" onclick="setDifficulty('hard')">😈 困难</button>
+                    </div>
+                </div>
                 <button class="btn btn-primary" onclick="startConfession()">点击继续</button>
             </div>
         </div>
 
         <!-- 主要内容屏幕 -->
         <div id="mainScreen" class="screen">
+            <!-- 纪念日倒计时 -->
+            <div class="countdown-section">
+                <h3>💑 我们的纪念日</h3>
+                <div id="countdown" class="countdown-display">
+                    <span class="countdown-item"><span id="days">0</span> 天</span>
+                    <span class="countdown-item"><span id="hours">0</span> 小时</span>
+                    <span class="countdown-item"><span id="minutes">0</span> 分钟</span>
+                </div>
+                <input type="date" id="anniversaryDate" class="anniversary-input" onchange="setAnniversaryDate()">
+            </div>
+            
+            <!-- 照片库 -->
+            <div class="photo-gallery">
+                <h3>📸 我们的时光</h3>
+                <div class="gallery-grid" id="galleryGrid">
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="gallery-item" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                </div>
+                <p class="gallery-hint">💡 提示：点击上面的照片区域，可以替换为你们的照片链接</p>
+            </div>
+            
             <div class="confession-container">
                 <div class="letter-box">
                     <h2 class="confession-title">💌 一份想对你说的话</h2>
@@ -74,7 +129,7 @@
                         <div class="button-group">
                             <button class="btn btn-yes" onclick="respondYes()">❤️ 愿意 ❤️</button>
                             <button class="btn btn-maybe" onclick="respondMaybe()">💭 考虑中</button>
-                            <button class="btn btn-no" onclick="respondNo()">😅 不好意思</button>
+                            <button class="btn btn-no" id="noBtn" onmouseover="moveButton()" onclick="respondNo()">😅 不好意思</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +148,17 @@
                     <button class="share-btn" onclick="copyLink()" title="复制链接">
                         <span>🔗</span> 复制链接
                     </button>
+                    <button class="share-btn" onclick="downloadScreenshot()" title="下载截图">
+                        <span>📥</span> 截图
+                    </button>
                 </div>
+            </div>
+            
+            <!-- 互动功能区 -->
+            <div class="interaction-section">
+                <button class="interaction-btn" onclick="triggerFireworks()">✨ 放烟火</button>
+                <button class="interaction-btn" onclick="toggleHeartRain()">💕 心形雨</button>
+                <button class="interaction-btn" onclick="showLoveMessage()">💌 彩虹字</button>
             </div>
         </div>
 

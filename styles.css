@@ -370,3 +370,389 @@ body {
         font-size: 1.2em;
     }
 }
+
+/* ===== 新增功能样式 ===== */
+
+/* 控制条 */
+.controls-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 999;
+    flex-direction: column;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid white;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.control-btn.active {
+    background: rgba(255, 100, 100, 0.6);
+    border-color: #ff6464;
+}
+
+/* 访客计数器 */
+.visitor-counter {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #333;
+    z-index: 998;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 难度选择 */
+.difficulty-selector {
+    margin: 30px 0;
+}
+
+.difficulty-text {
+    color: #666;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #333;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.difficulty-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+}
+
+.difficulty-btn.selected {
+    background: rgba(255, 100, 100, 0.3);
+    border-color: #ff6464;
+    color: #d63031;
+}
+
+/* 倒计时 */
+.countdown-section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.countdown-section h3 {
+    color: #d63031;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.countdown-display {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.countdown-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    min-width: 80px;
+}
+
+.countdown-item span {
+    font-size: 1.3em;
+    font-weight: bold;
+    display: block;
+}
+
+.anniversary-input {
+    padding: 8px 15px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 0.9em;
+    cursor: pointer;
+    background: white;
+    color: #333;
+}
+
+/* 照片库 */
+.photo-gallery {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.photo-gallery h3 {
+    color: #d63031;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item::after {
+    content: '📸';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    opacity: 0.7;
+}
+
+.gallery-hint {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+/* 互动功能区 */
+.interaction-section {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.interaction-btn {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.6), rgba(255, 182, 193, 0.6));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.interaction-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.8), rgba(255, 182, 193, 0.8));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+}
+
+/* 烟火效果 */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 500;
+}
+
+.firework {
+    position: fixed;
+    pointer-events: none;
+    animation: fireworkExplode 1s ease-out forwards;
+}
+
+@keyframes fireworkExplode {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+/* 心形雨效果 */
+#hearts-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 300;
+}
+
+.falling-heart {
+    position: fixed;
+    font-size: 1.5em;
+    user-select: none;
+    animation: fall linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 彩虹字效果 */
+.rainbow-text {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    font-size: 1.5em;
+    animation: rainbow-shine 3s linear infinite;
+}
+
+@keyframes rainbow-shine {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.2);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/* 暗黑模式 */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+body.dark-mode .confession-container,
+body.dark-mode .greeting-box,
+body.dark-mode .response-box,
+body.dark-mode .countdown-section,
+body.dark-mode .photo-gallery {
+    background: rgba(30, 30, 50, 0.95) !important;
+    color: #eee;
+}
+
+body.dark-mode .letter-content,
+body.dark-mode p,
+body.dark-mode .gallery-hint {
+    color: #ddd;
+}
+
+body.dark-mode input {
+    background: rgba(50, 50, 80, 0.8) !important;
+    color: #eee;
+    border-color: #667eea !important;
+}
+
+/* 移动"不好意思"按钮 */
+.btn-no.moving {
+    position: fixed;
+    z-index: 10000;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+    .controls-bar {
+        bottom: 10px;
+        right: 10px;
+        flex-direction: row;
+    }
+
+    .control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+
+    .visitor-counter {
+        top: 10px;
+        right: 10px;
+        font-size: 0.9em;
+    }
+
+    .countdown-section,
+    .photo-gallery {
+        padding: 15px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countdown-display {
+        gap: 8px;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .interaction-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}
