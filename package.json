@@ -1,0 +1,17 @@
+{
+  "name": "confession-website",
+  "version": "1.0.0",
+  "description": "A beautiful confession website for sharing your feelings",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'This is a static site, no build needed!'"
+  },
+  "keywords": [
+    "confession",
+    "love",
+    "website",
+    "netlify"
+  ],
+  "author": "",
+  "license": "MIT"
+}

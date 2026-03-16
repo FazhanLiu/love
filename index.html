@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="💕 一份特别的告白">
+    <meta property="og:description" content="我有件重要的事想和你说...">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500&h=500">
+    <title>💕 一份特别的告白</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <!-- 开始屏幕 -->
+        <div id="startScreen" class="screen active">
+            <div class="greeting-box">
+                <h1 class="title">✨ 亲爱的你 ✨</h1>
+                <p class="subtitle">我想和你分享一些话...</p>
+                <button class="btn btn-primary" onclick="startConfession()">点击继续</button>
+            </div>
+        </div>
+
+        <!-- 主要内容屏幕 -->
+        <div id="mainScreen" class="screen">
+            <div class="confession-container">
+                <div class="letter-box">
+                    <h2 class="confession-title">💌 一份想对你说的话</h2>
+                    
+                    <div class="letter-content">
+                        <p>亲爱的你，</p>
+                        <p>
+                            时光悄悄地过去，你的出现改变了我的生活。
+                            我想用这个特别的方式，向你诉说最真实的想法。
+                        </p>
+                        
+                        <div class="heart-divider">❤️</div>
+                        
+                        <p>
+                            你知道吗？每一次与你的对话，
+                            都让我期待下一次的见面。
+                            你的笑容温暖了我的每一个日子。
+                        </p>
+                        
+                        <div class="heart-divider">❤️</div>
+                        
+                        <p>
+                            自定义这里的内容，添加你想说的话...
+                            <br><br>
+                            <em>修改 index.html 中 letter-content 部分</em>
+                        </p>
+                        
+                        <div class="heart-divider">❤️</div>
+                        
+                        <p>
+                            所以，我想问你——
+                            <br>
+                            你愿意陪伴我吗？❤️
+                        </p>
+                    </div>
+
+                    <div class="question-box">
+                        <p class="question">你的答案是？</p>
+                        <div class="button-group">
+                            <button class="btn btn-yes" onclick="respondYes()">❤️ 愿意 ❤️</button>
+                            <button class="btn btn-maybe" onclick="respondMaybe()">💭 考虑中</button>
+                            <button class="btn btn-no" onclick="respondNo()">😅 不好意思</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分享按钮 -->
+            <div class="share-section">
+                <p class="share-text">想把这个页面分享给朋友吗？</p>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareOnWeChat()" title="分享到微信">
+                        <span>📱</span> 微信
+                    </button>
+                    <button class="share-btn" onclick="shareOnQQ()" title="分享到QQ">
+                        <span>💬</span> QQ
+                    </button>
+                    <button class="share-btn" onclick="copyLink()" title="复制链接">
+                        <span>🔗</span> 复制链接
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 响应屏幕 -->
+        <div id="responseScreen" class="screen">
+            <div class="response-container">
+                <div id="responseContent" class="response-box">
+                    <!-- 动态内容 -->
+                </div>
+                <button class="btn btn-primary" onclick="location.reload()">重新开始</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
